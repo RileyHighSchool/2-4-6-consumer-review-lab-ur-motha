@@ -162,33 +162,8 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-  public static double totalSentiment(String filename){
+  
 
-    String customerReview = textToString(filename);
-    
-    double count = 0.0;
-
-    while (customerReview.length() > 0 && customerReview.indexOf(" ") != -1){
-      
-      int spaceLoc = customerReview.indexOf(" ");
-
-
-      String word = customerReview.substring(0, spaceLoc);
-
-      customerReview = customerReview.substring(spaceLoc+1);
-      
-      total += sentimentVal(word);
-    }     
-    total += sentimentVal(customerReview);
-    return total;
-  }
-
-    public static int starRating(String filename){
-
-      String customerReview = textToString(fileName);
-
-      double total 
-  }
 
   public static double totalSentiment(String fileName){
     String customerReview = textToString(fileName);
@@ -209,10 +184,6 @@ public class Review {
 
     total += sentimentVal(removePunctuation(customerReview));
 
-
-    
-    
-  
     return total; 
   }
 
@@ -221,8 +192,8 @@ public class Review {
     double totalSentiment = totalSentiment(fileName);
     if(totalSentiment > 15)
     {
-return 4;
-}
+    return 4;
+    }
     else if(totalSentiment >= 5)
     {
     return 3;
@@ -238,9 +209,6 @@ return 4;
     else
     {
     return 0;
-
-
-
 
 
   }
