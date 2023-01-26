@@ -176,11 +176,47 @@ public class Review {
       //reset consumerReview
       customerReview = customerReview.substring(spaceLoc+1);
       //get sentiment of word
-      total += sentimentVal(word);
+      total += sentimentVal(removePunctuation(word));
+     
     }
+
+    total += sentimentVal(removePunctuation(customerReview));
+
+
+    
     
   
     return total; 
   }
+
+  public static int starRating(String fileName)
+  {
+    double totalSentiment = totalSentiment(fileName);
+    if(totalSentiment > 15)
+    {
+return 4;
+}
+    else if(totalSentiment >= 5)
+    {
+    return 3;
+    }
+    else if(totalSentiment >= 0)
+    {
+    return 2;
+    }
+    else if(totalSentiment >= -10)
+    {
+    return 1;
+    }
+    else
+    {
+    return 0;
+
+
+
+
+
+  }
+}
 
 }
