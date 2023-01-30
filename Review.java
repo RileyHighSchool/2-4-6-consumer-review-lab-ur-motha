@@ -213,5 +213,32 @@ public class Review {
 
   }
 }
+public static String fakeReview(String filename){
+
+  String newReview = "";
+  String oldReview = textToString(filename);
+
+  while( oldReview.length() > 0 && oldReview.indexOf("*") != -1)
+{
+  int star = oldReview.indexOf("*");
+  int space = oldReview.indexOf(" ", star);
+
+  //newReview = This place was nasty the waitresses were TERREFIC     1
+
+
+  //Get old review from start to * put in new review
+  newReview += oldReview.substring(0, space);
+
+//add a random adjective ro new review
+
+//Chop off beginning of old review, until the space after the *
+
+//Add the end of old review   1
+
+
+}
+
+}
+
 
 }
