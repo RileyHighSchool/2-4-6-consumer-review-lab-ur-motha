@@ -218,26 +218,45 @@ public static String fakeReview(String filename){
   String newReview = "";
   String oldReview = textToString(filename);
 
-  while( oldReview.length() > 0 && oldReview.indexOf("*") != -1)
-{
-  int star = oldReview.indexOf("*");
-  int space = oldReview.indexOf(" ", star);
+  while(oldReview.length() > 0 && oldReview.indexOf("*") != -1)
+  {
+    int star = oldReview.indexOf("*");
+    int space = oldReview.indexOf(" ", star);
 
-  //newReview = This place was nasty the waitresses were TERREFIC     1
+    //newReview = This place was nasty the waitresses were TERREFIC     1
 
 
-  //Get old review from start to * put in new review
-  newReview += oldReview.substring(0, space);
+    //Get old review from start to * put in new review
+    newReview += oldReview.substring(0, star);
 
-//add a random adjective ro new review
+    //add a random adjective ro new review
+    newReview += randomAdjective();
 
-//Chop off beginning of old review, until the space after the *
+    //randomposadv and negadv - user choice - stringer adv
 
+
+
+
+
+    //Chop off beginning of old review, until the space after the *
+
+    if (space > 0){
+    oldReview = oldReview.substring(space-1);
+    } 
+    else {
+      newReview += oldReview.substring(0, star);
+      newReview += randomAdjective();
+      oldReview = "";
+      break;
+    }
+
+  //add end of previous statement
+  }
 //Add the end of old review   1
 
+  newReview += oldReview;
 
-}
-
+  return newReview;
 }
 
 
