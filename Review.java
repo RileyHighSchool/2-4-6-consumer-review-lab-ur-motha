@@ -213,7 +213,7 @@ public class Review {
 
   }
 }
-public static String fakeReview(String filename){
+public static String fakeReview(String filename, boolean isPos){
 
   String newReview = "";
   String oldReview = textToString(filename);
@@ -223,25 +223,25 @@ public static String fakeReview(String filename){
     int star = oldReview.indexOf("*");
     int space = oldReview.indexOf(" ", star);
 
-    //newReview = This place was nasty the waitresses were TERREFIC     1
-
-
     //Get old review from start to * put in new review
     newReview += oldReview.substring(0, star);
 
     //add a random adjective ro new review
-    newReview += randomAdjective();
-
-    //randomposadv and negadv - user choice - stringer adv
 
 
+    //randomposadv and negadv - user choice - stronger adv
+    if (isPos){
+      newReview += randomPositiveAdj() + " ";
+    } else {
+      newReview += randomNegativeAdj() + " ";
 
+    }
 
 
     //Chop off beginning of old review, until the space after the *
 
     if (space > 0){
-    oldReview = oldReview.substring(space-1);
+    oldReview = oldReview.substring(space+1);
     } 
     else {
       newReview += oldReview.substring(0, star);
