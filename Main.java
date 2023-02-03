@@ -13,8 +13,9 @@ public class Main {
         // System.out.println(Review.fakeReview("simpleReview.txt", true));
 
 
-        System.out.println(Review.kCISYM(20));
+        System.out.println(Review.kCISYM(20, true));
 
+        //System.out.println(Review.fakeReview("karenCanIspeakWithYourManager.txt", false));
 
     }
 }
