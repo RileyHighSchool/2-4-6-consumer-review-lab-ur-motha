@@ -13,6 +13,7 @@ public class Review {
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
+  private static ArrayList<String> karenWords = new ArrayList<String>();
  
   
   private static final String SPACE = " ";
@@ -56,6 +57,20 @@ public class Review {
     }
     catch(Exception e){
       System.out.println("Error reading or parsing negativeAdjectives.txt");
+    }  
+    
+    //read in the positive adjectives in postiveAdjectives.txt
+    try {
+      Scanner input = new Scanner(new File("karenCanIspeakWithYourManager.txt"));
+      while(input.hasNextLine()){
+        String temp = input.nextLine().trim();
+        //System.out.println(temp);
+        karenWords.add(temp);
+      }
+      input.close();
+    }
+    catch(Exception e){
+      System.out.println("Error reading or parsing postitiveAdjectives.txt\n" + e);
     }   
   }
   
@@ -162,6 +177,17 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+
+
+    /** 
+   * Randomly picks a negative adjective from the negativeAdjectives.txt file and returns it.
+   */
+  public static String randomKarenWord()
+  {
+    int index = (int)(Math.random() * karenWords.size());
+    return karenWords.get(index);
+    
+  }
   
 
 
@@ -258,6 +284,32 @@ public static String fakeReview(String filename, boolean isPos){
 
   return newReview;
 }
+public static String kCISYM(int length, boolean isRand){
+  
+  String karenReview = "";
+
+  for(int i= 0; i < length; i++){
+  
+  if (isRand){
+    karenReview += randomPositiveAdj() + " ";
+  } else {
+    karenReview += randomNegativeAdj() + " ";
+
+  }
+
+  }
+  
+  
+  
+
+  return karenReview;
+
+
+}
+
+
+
+
 
 
 }
