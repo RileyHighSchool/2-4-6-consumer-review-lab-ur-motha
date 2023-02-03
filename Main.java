@@ -10,10 +10,10 @@ public class Main {
         //System.out.println(Review.totalSentiment("simpleReview.txt"));
         //System.out.println(Review.starRating("simpleReview.txt"));
 
-        System.out.println(Review.fakeReview("simpleReview.txt", false));
+        // System.out.println(Review.fakeReview("simpleReview.txt", true));
 
 
-
+        System.out.println(Review.kCISYM(20));
 
 
     }
